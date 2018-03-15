@@ -2,21 +2,40 @@
   "manifest_version": 2,
 
   "name": "音乐台",
-  "description": "自用音乐台，从国内音乐网站爬音频，然后播放。",
+  "short_name": "MusicBox", // 可有可无
   "version": "1.0",
+  // "default_locale": "zh_CN",
+  "description": "自用音乐台，从国内音乐网站爬音频，然后播放。",
   "icons": {
-    "128": "imgs/logo.png",
-    "16": "imgs/logo_16.png",
-    "48": "imgs/logo_48.png"
+    "16": "imgs/16.png",
+    "32": "imgs/32.png",
+    "48": "imgs/48.png",
+    "128": "imgs/128.png"
   },
-
   "browser_action": {
-    "default_icon": "imgs/logo2.png",
-    "default_popup": "popup.html",
-    "default_title": "音乐台"
+    // "default_icon": "imgs/32.png",
+    "default_icon": {
+      "19": "imgs/32.png",
+      "38": "imgs/48.png"
+    },
+    "default_title": "音乐台",
+    "default_popup": "popup.html"
   },
+  "background": {
+    // 2种指定方式，如果指定JS，那么会自动生成一个背景页
+    "page": "music.html"
+    //"scripts": ["js/background.js"],
+    // "persistent": false
+  },
+  // "content_scripts":[{ // 注入浏览器当前打开页面的代码
+  //   "matches": ["<all_urls>"], // ["*://*/*"]
+  //   "js": [],
+  //   "css": [],
+  //   "run_at": "document_start" // , "document_end", "document_idle"
+  // }],
   "permissions": [
     "activeTab",
     "storage"
-  ]
+  ],
+  "homepage_url": "https://www.baidu.com"
 }
